@@ -164,15 +164,8 @@ void main(void){                          //OPEN MAIN
     		  PORTB = segment_decoder[res];
     		  PTP = digit_decoder[1];
     	  } else {
-    		  int temp = res, i = 0;
-
-    		  while (i != 4 && temp != 0) {
-    			  int dig = temp % 10;
-    			  PORTB = segment_decoder[dig];
-    			  PTP = digit_decoder[i++];
-    			  mSDelay(175);
-    			  temp /= 10;
-    		  }
+		  break;
+    		  
     	  }
       }
 
@@ -182,6 +175,18 @@ void main(void){                          //OPEN MAIN
          row = PORTA & 0xF0;              //READ ROWS
       } while(row != 0x00);                //MAKE SURE BUTTON IS NOT STILL HELD
    }                                      //CLOSE WHILE(1)
+	
+	while (1) {
+		  int temp = res, i = 0;
+
+    		  while (i != 4 && temp != 0) {
+    			  int dig = temp % 10;
+    			  PORTB = segment_decoder[dig];
+    			  PTP = digit_decoder[i++];
+    			  mSDelay(175);
+    			  temp /= 10;
+    		  }
+	}
 }                                         //CLOSE MAIN
 
 /**********************SUBROUTINES***********/
