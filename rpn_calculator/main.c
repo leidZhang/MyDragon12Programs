@@ -13,7 +13,7 @@ volatile unsigned int keypad_debounce_timer = 0;
 void rti_init(unsigned char, unsigned int);
 void execute_the_jobs(void);
 void INTERRUPT rti_isr(void);
-
+// @Author LeidZhang
 int main(void) {
 	set_clock_24mhz(); //usually done by D-Bug12 anyway
 	rti_init(0x11, 10);
